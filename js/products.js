@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (result.status == "ok") {
             let ListaProd = result.data.products;
             ShowProductsList(ListaProd);
-            console.log(ListaProd)
-
         }
         else {
             alert("Hubo un problema: " + result.data);
