@@ -13,6 +13,14 @@ nav a {
   text-decoration: none;
 }
 
+.UserData {
+  width: 100%;
+  position: relative;
+  top: 7.5px;
+  color: rgb(207, 207, 207);
+  font-size: 1em;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -187,5 +195,12 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+#searchBar {
+  position: relative;
+  right: 70vh;
+  top: 6vh;
+  inline-size: 40vh;
 }
 
