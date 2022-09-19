@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -31,17 +32,39 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item" id="AccData">
-            
+
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="container" id="prod-info">
+
+    </div>
+
+    <div class="container" id="comment-section">
+      <h4 class="text-left p-3">Comentarios</h4>
+      
+    </div>
+    </div>
+
+    </div>
+    <div class="container text-left p-3" id="user-comment">
+      <h4>Comentar</h4>
+      <p>Tu opinión:</p>
+      <input type="text" id="cmt-field">
+      <p>Tu puntuación:</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br>
+      <br>
+      <button id="comment-send">Enviar</button>
     </div>
   </main>
   <footer class="text-muted">

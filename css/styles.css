@@ -204,3 +204,45 @@ a.custom-card:hover {
   inline-size: 40vh;
 }
 
+.product-img {
+  width: 200px;
+}
+.title-style {
+  font-weight: bold;
+}
+#user-comment p{
+  margin: 0;
+}
+#cmt-field {
+  width: 65vh;
+  height: 10vh;
+  margin-bottom: 3vh;
+}
+
+#comment-send {
+  background-color: rgba(0, 0, 255, 0.644);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+select {
+  padding-right: 5vh;
+}
+.commentary {
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  background-color: rgba(0, 0, 0, 0.048);
+  margin: 0;
+}
+.sp1 {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.cmt-info {
+  margin-bottom: 15px;
+}
+.goldenStar {
+  color: rgb(199, 169, 2);
+}

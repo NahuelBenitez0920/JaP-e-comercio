@@ -5,6 +5,13 @@ let min = undefined;
 let max = undefined;
 
 
+function setProductID(id) {
+    localStorage.setItem("ProductID", id);
+    window.location = "product-info.html";
+}
+
+
+
 function SetProductCategory() {
     let ProductCat = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`
     return ProductCat;
