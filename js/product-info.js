@@ -1,6 +1,58 @@
+function redirect(id) {
+    localStorage.setItem("ProductID", id);
+    window.location = "product-info.html"
+}
+
+function RelatedProducts(RelatedList) {
+   let contentHTML = "";
+    for(object of RelatedList) {
+        contentHTML = `<div class="col-3">
+        <div onclick="redirect(${object.id})" class="card bg-light border border-secondary" style="width: 13rem;">
+          <img src="${object.image}" class="card-img-top"
+            alt="logo de Bootstrap">
+          <div class="card-body border-top border-secondary">
+            
+            <h5 class="card-title">${object.name} </h5>
+            
+            
+          </div>
+        </div>
+      </div> ` 
+        
+      document.getElementById("rel-products").innerHTML += contentHTML;
+        
+     }
+}
+
 
 function ShowProductInfo(Prod) {
     let ContentHTML = ` 
+    <div class="mt-5 d-flex border border-secondary rounded"style="width: 65%;">
+          <div id="carouselConControles" class="carousel slide" data-bs-interval="5000">
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active">
+                        <img src="${Prod.images[0]}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Prod.images[1]}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Prod.images[2]}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Prod.images[3]}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselConControles" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselConControles" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>    
         
         <div class="text-left p-3" id="product-name">
             <h2>${Prod.name}</h2>
@@ -22,28 +74,7 @@ function ShowProductInfo(Prod) {
             <h6 class="title-style">Cantidad de Vendidos</h6>
             <p>${Prod.soldCount}</p>
         </div>
-        <div class="text-left p-3">
-            <h6 class="title-style">Imágenes Ilustrativas</h6>
-            
-            <div class="row">
-                <div class="col">
-                    <img class="product-img" src="${Prod.images[0]}"> 
-                </div>
         
-                <div class="col">
-                    <img class="product-img" src="${Prod.images[1]}"> 
-                </div>
-
-                <div class="col">
-                     <img class="product-img" src="${Prod.images[2]}"> 
-                </div>
-                
-                <div class="col">
-                    <img class="product-img" src="${Prod.images[3]}"> 
-                </div>
-
-            </div>
-         </div>
     `
     document.getElementById("prod-info").innerHTML = ContentHTML;
 
@@ -155,6 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (result.status == "ok") {
             let Product = result.data;
             ShowProductInfo(Product);
+            RelatedProducts(Product.relatedProducts)
+            
         }
         else {
             alert("Hubo un problema: " + result.data);

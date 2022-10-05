@@ -41,9 +41,21 @@ function getJSONData(url) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let toHTML = ` <div class="UserData">
-          <p> ${localStorage.getItem("User")}</p>
-            </div>  `
-  document.getElementById("AccData").innerHTML = toHTML;        
+  let toHTML = `  <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       ${localStorage.getItem("User")}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+                        <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                        <li onclick="LogOut()"><span class="dropdown-item" id="logOut">Cerrar Sesión</span></li>
+                    </ul>
+                  </div>  `
+  document.getElementById("AccData").innerHTML = toHTML;
 })
+
+function LogOut() {
+   window.location = "index.html"
+   localStorage.removeItem("User");
+}
 
