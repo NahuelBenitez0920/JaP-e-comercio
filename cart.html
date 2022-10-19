@@ -38,9 +38,74 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="pt-5 mb-5 text-center" >
+        <h2>Carrito de Compras</h2>
       </div>
+      
+      <div id="cartProductList" class="container">
+        <div class="pb-4">
+          <h4>Articulos a Comprar</h4>
+          </div>
+
+          <div class="container row">
+            <div class="col-2 text-white">
+              <p>Nombre</p> 
+            </div>
+            <div class="col-2 fw-bold">
+              <p>Nombre</p> 
+            </div>
+            <div class="col-2 fw-bold">
+             <p>Costo</p>
+            </div>
+            <div class="col-2 fw-bold">
+             <p>Cantidad</p>
+            </div>
+            <div class="col-2 fw-bold">
+             <p>Subtotal</p>
+            </div>
+            <hr>
+            
+          </div> 
+          
+        </div>
+       
+        <div class="container pb-5 pt-3">
+                    
+          <h4>Tipo de envío</h4>
+          
+          <input type="radio" id="Premium-envio" name="Envio" value="Premium">
+          <label for="Premium-envio">Premium 2 a 5 dias (15%)</label><br>
+          <input type="radio" id="Express-envio" name="Envio" value="Express">
+          <label for="Express-envio">Express 5 a 8 dias (7%)</label><br>
+          <input type="radio" id="Standard-envio" name="Envio" value="Standard" checked>
+          <label for="Standard-envio">Standard 12 a 15 dias (5%)</label>
+      </div>
+      
+      <div class="container">
+           <h4>Dirección de envío</h4>
+
+          <div class="row">
+
+              <div class="col-5">
+                  <label>Calle</label><br>
+                  <input type="text" size="40">
+              </div>
+              
+              <div class="col-3">
+                  <label>Número</label><br>
+                  <input type="number">
+              </div>
+          </div>
+          
+          <div class="row">
+              <div class="col">
+                  <label>Esquina</label><br>
+                  <input type="text" size="40">
+              </div>
+          </div>
+      </div>
+  </div> 
+
     </div>
   </main>
   <footer class="text-muted">

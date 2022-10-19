@@ -1,7 +1,9 @@
+
 function redirect(id) {
     localStorage.setItem("ProductID", id);
     window.location = "product-info.html"
 }
+
 
 function RelatedProducts(RelatedList) {
    let contentHTML = "";
@@ -55,7 +57,14 @@ function ShowProductInfo(Prod) {
     </div>    
         
         <div class="text-left p-3" id="product-name">
-            <h2>${Prod.name}</h2>
+            <div class="row">
+                <div class="col pt-3">
+                    <h2>${Prod.name}</h2>
+                </div>
+                <div class="col pt-3">
+                    <button id="Comprar" class="btn btn-outline-success">Comprar</button>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="text-left p-3">
@@ -186,8 +195,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (result.status == "ok") {
             let Product = result.data;
             ShowProductInfo(Product);
-            RelatedProducts(Product.relatedProducts)
-            
+            RelatedProducts(Product.relatedProducts);
+            CreateCart(Product);
+           
         }
         else {
             alert("Hubo un problema: " + result.data);
@@ -199,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let CommentList = result.data;
             ShowCommentaries(CommentList);
             starRating(CommentList);
-            
         }
         else {
             alert("Hubo un problema: " + result.data);
@@ -209,3 +218,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 })
+
+function CreateCart(Prod) {
+   document.getElementById("Comprar").addEventListener("click", ()=> {
+        if(localStorage.getItem("Cart") == undefined){
+                let newCart =  {
+                [Prod.id] : {
+                    name :  `${Prod.name}`,
+                    unitCost : `${Prod.cost}`,
+                    currency : `${Prod.currency}`,
+                    image : `${Prod.images[0]}`
+                }
+            }
+            localStorage.setItem("Cart", JSON.stringify(newCart))
+        }
+        if(localStorage.getItem("Cart")) {
+          let cart = JSON.parse(localStorage.getItem("Cart"));
+          localStorage.setItem(
+            "Cart",
+            JSON.stringify({
+              ...cart,
+              [Prod.id]: {
+                name :  `${Prod.name}`,
+                unitCost : `${Prod.cost}`,
+                currency : `${Prod.currency}`,
+                image : `${Prod.images[0]}`
+            },
+            })
+          );
+         
+           
+        }
+   })
+}
