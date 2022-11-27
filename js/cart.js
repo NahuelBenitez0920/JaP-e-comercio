@@ -44,25 +44,25 @@ function showCartProducts(ProdList) {
        
         let ContentHTML = `
                     <div id="prod${key}" class="container row">
-                        <div class="col-2">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-2">
                             <div class="w-50 pb-2">
                         <img src=${ProdList[key].image} class="w-100">
                         </div> 
                         </div>
                         
-                        <div class="col-2 pt-2">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 pt-2">
                         <p>${ProdList[key].name}</p> 
                         </div>
-                        <div class="col-2 pt-2">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 pt-2">
                         <p>${ProdList[key].currency} ${ProdList[key].unitCost}</p>
                         </div>
-                        <div class="col-2 pt-2">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 pt-2">
                         <input onclick="showPriceByCount(List,${key})"id="${key}"type="number" class="w-50 cantidad"  value="1">
                         </div>
-                        <div class="col-2 pt-2 fw-bold">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 pt-2 fw-bold">
                         <p id="subtotal-${key}">${ProdList[key].currency} ${ProdList[key].unitCost}</p>
                         </div>
-                        <div class="col-2 pb-2">
+                        <div class="col-lg-1 col-md-1 col-sm-1  pb-2">
                         <span onclick="removeProduct(${key})" class="fs-5 fa fa-trash btn btn-outline-danger"></span>
                         </div>
                         <hr>
