@@ -4,19 +4,23 @@ let ListaProd = [];
 let min = undefined;
 let max = undefined;
 
-
+/* Esta función se encarga de guardar el identificador del producto en el almacenamiento local, para que posteriormente
+ese dato sea accedido al momento de realizar la request al servidor. */
 function setProductID(id) {
     localStorage.setItem("ProductID", id);
     window.location = "product-info.html";
 }
 
 
-
+ 
 function SetProductCategory() {
-    let ProductCat = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`
+    let ProductCat = PRODUCTS_URL + localStorage.getItem("catID") + ".json";
     return ProductCat;
 }
-
+/* ShowProductList se encarga de imprimir en el HTML una plantilla con la informacion del producto. 
+    Recibe como parametro una lista de productos y la recorre creando una plantilla para cada producto
+    que posteriormente se imprime en el HTML. Ademas, esta función mostrara o no ciertos productos dependiendo
+    de si el usuario seteo un minimo y/o un maximo para el precio del producto.*/
 function ShowProductsList(Lista) {
     let ContenidoHTML = "";
     document.getElementById("product-list-container").innerHTML = "";
@@ -28,7 +32,7 @@ function ShowProductsList(Lista) {
                 ContenidoHTML += `
                     <div onclick="setProductID(${elemento.id})" class="list-group-item list-group-item-action cursor-active">
                     <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <img src="${elemento.image}" alt="${elemento.description}" class="img-thumbnail">
                     </div>
                     <div class="col">
@@ -60,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 })
+
+/* Esta función consulta el valor de los campos "minimo" y "maximo". Si los campos se encuentran vaciós 
+    dejara las variables min y max como indefinidas, si se ingresó en un valor en alguno (o en ambos) de los campos
+    min y max tomaran el valor de dichos campos. */
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("rangeFilterCount").addEventListener("click", () => {
         if (document.getElementById("rangeFilterCountMin").value != "") {
@@ -79,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
+/* Esta funcion se encarga de limpiar el filtrado por precio. Dejara indefinidas las variables min y max (para que no se realize
+    el filtrado en ShowProductList) y limpiara los campos "minimo" y "maximo" de sus antiguos valores. Por ultimo, haciendo un
+    llamado a ShowProductList (esta vez con min y max indefinidas) mostrara el listado completo de productos*/
 document.getElementById("clearRangeFilter").addEventListener("click", () => {
     min = undefined;
     max = undefined;

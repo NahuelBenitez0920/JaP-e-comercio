@@ -40,22 +40,60 @@ function getJSONData(url) {
     });
 }
 
+/* Esta funcion crea el botón con el dropdown y las opciones de "Mi carrito" "Mi Perfil" y "Cerrar Sesión" y los situa en la
+   barra de navegación. Dependiendo si el usuario se encuentra logueado o no el botón va a cambiar en apariencia y funcionalidad. 
+   Cuando el usuario este logeado el botón mostrara el email del usuario y al momento de hacer click en "Mi perfil" la pagina 
+   redirige hacia la sección del perfil, al hacer click en "Cerrar Sesión" se borraran los datos login del usuario (su email).
+   
+    Si el usuario no esta logeado, el botón no va a mostrar ninguna informacion, el usuario tampoco podrá ingresar a la sección
+    de perfil, ya que al hacer click en "Mi perfil" este será redirigido a la pagina del login para que inicie sesión.
+    Si el usuario no esta logeado la opcion de "Cerrar Sesión" estara deshabilitada. */
 document.addEventListener("DOMContentLoaded", () => {
-  let toHTML = `  <div class="dropdown">
+  
+  if (localStorage.getItem("User") == undefined) {
+    let toHTML = `  <div class="dropdown">
                     <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       ${localStorage.getItem("User")}
+                       
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
-                        <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
-                        <li onclick="LogOut()"><span class="dropdown-item" id="logOut">Cerrar Sesión</span></li>
+                        <li id="myprofile"><span class="dropdown-item">Mi Perfil</span></li>
+                        <li class="disabled"><span class="dropdown-item" id="logOut">Cerrar Sesión</span></li>
                     </ul>
                   </div>  `
   document.getElementById("AccData").innerHTML = toHTML;
+  }
+  else {
+    let toHTML = `  <div class="dropdown">
+    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+       ${localStorage.getItem("User")}
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+        <li id="myprofile"><span class="dropdown-item">Mi Perfil</span></li>
+        <li onclick="LogOut()"><span class="dropdown-item" id="logOut">Cerrar Sesión</span></li>
+    </ul>
+  </div>  `
+document.getElementById("AccData").innerHTML = toHTML;
+  }
+
+  document.getElementById("myprofile").addEventListener("click", ()=> {
+  if (localStorage.getItem("User") == undefined) {
+    window.location = "login.html"
+  }
+  else {
+    window.location = "my-profile.html"
+  }
 })
 
+ 
+})
+
+/* LogOut se encarga de cerrar la sesión, redirige a la pagina principal y elimina los datos de sesión del Usuario. */
 function LogOut() {
    window.location = "index.html"
    localStorage.removeItem("User");
 }
+
+
 

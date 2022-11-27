@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="principal.html">Inicio</a>
+            <a class="nav-link" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -52,10 +52,69 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container w-50">
+      <div class="pt-5 pb-3">
+        <h4>Perfil</h4>
       </div>
+      <div id="foralert">
+
+      </div>
+      <div class="container w-75  pb-5" >
+       <img id="profileimg" class="w-100 border border-dark rounded" src="img/img_perfil.png">
+        
+      </div>
+      <div class="row container">
+        <div class="col-lg-6 col-md-12 col-sm-6">
+          <input class="w-100" id="fileimg" name="" type="file">
+        </div>
+      </div>
+      
+       <hr>
+      <form id="form" class="needs-validation" novalidate>
+        <div class="row pb-4">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 pb-3">
+            <label class="form-label" for="firstname">Primer Nombre</label>
+            <input class="form-control" name="firstname" id="firstname" type="text" required>
+            <div class="invalid-feedback">
+              Debe ingresar su nombre. 
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 pb-3">
+            <label class="form-label" for="secondname">Segundo Nombre</label>
+            <input class="form-control" name="secondname" id="secondname" type="text">
+          </div>
+        </div>
+        <div class="row pb-4">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 pb-3">
+            <label class="form-label" for="surname1">Primer Apellido</label>
+            <input class="form-control" name="surname1" id="surname1" type="text" required>
+            <div class="invalid-feedback">
+              Debe ingresar su primer apellido.
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 pb-3">
+            <label class="form-label" for="surname2">Segundo Apellido</label>
+            <input class="form-control" name="surname2" id="surname2" type="text">
+          </div>
+        </div>
+        <div class="row pb-5">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 pb-3">
+            <label class="form-label" for="email">E-Mail</label>
+            <input class="form-control" name="email" id="email" type="email" required>
+            <div class="invalid-feedback">
+              Debe ingresar una dirección de correo valido.
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <label class="form-label" for="phoneNumber">Número de Contacto</label>
+            <input class="form-control" name="phoneNumber" id="phoneNumber" type="text">
+          </div>
+        </div>
+        <hr>
+        <div class="pt-2">
+          <button type="submit" id="savechanges" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+      </form>
     </div>
   </main>
   <footer class="text-muted">

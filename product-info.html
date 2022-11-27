@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="principal.html">Inicio</a>
+            <a class="nav-link" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -53,9 +53,13 @@
     <div class="container text-left p-3" id="user-comment">
       <h4>Comentar</h4>
       <p>Tu opinión:</p>
-      <input type="text" id="cmt-field">
+      <div class="row">
+        <div class="col-12">
+          <input class="w-100" type="text" id="cmt-field">
+        </div>
+      </div>
       <p>Tu puntuación:</p>
-      <select>
+      <select id="ratingnumber">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -66,7 +70,9 @@
       <br>
       <button id="comment-send">Enviar</button>
     </div>
+      <div class="text-danger container pb-5" id="errorMsj">
 
+      </div>
     <div class="container text-left">
       <h4 class="pb-3">Productos relacionados</h4>
       <div class="row" id="rel-products">
@@ -74,6 +80,24 @@
        
       </div>
     </div>
+    <div id="ExModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

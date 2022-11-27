@@ -246,3 +246,8 @@ select {
 .goldenStar {
   color: rgb(199, 169, 2);
 }
+
+.disabled {
+  pointer-events:none; 
+  opacity:0.6;         
+}
